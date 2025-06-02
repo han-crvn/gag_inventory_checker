@@ -1,0 +1,34 @@
+First Algorithm for GAG (Grow A Garden) Inventory Checker
+
+1.) Show the main menu.
+
+2.) Allow users to choose from the options (Check Inventory, Add Goods/Pets, Edit Inventory, and Exit.)
+
+3.) If users choose option 1:
+    3.1.) Allow users to choose from two options (View Goods or View Pets.)
+        3.1.1.) If users choose View Goods:
+            3.1.1.1.) Allow users to see the details about the current fruits and its prices.
+            3.1.1.2.) If users click a certain fruit, check its mutations and weights.
+        3.1.2._ If users choose View Pets:
+            3.1.2.1. Allow users to see the details about the current pets and its prices.
+
+4.) If users choose option 2:
+    4.1.) Allow users to choose if they will Add Goods or Pets.
+        4.1.1.) If users choose Add Goods:
+            4.1.1.1.) Allow users to choose what is the fruit or vegetables.
+            4.1.1.2.) Allow users to add what mutations it has.
+            4.1.1.3.) Allow users to add its prices.
+        4.1.2.) If users choose Add Pets:
+            4.1.2.1.) Allow users to choose what pet they will add.
+            4.1.2.2.) Allow users to add its weight.
+
+5.) If users choose option 3:
+    5.1.) Allow users to choose from two options (View Goods or View Pets.)
+        5.1.1.) If users choose View Goods:
+            5.1.1.1) Allow users to remove the item or mark as sold.
+        5.1.2.) If users choose View Pets:
+            5.1.1.2.) Allow users to remove the pet or mark as sold.
+
+6. If users choose option 4:
+    6.1.) Allow users to exit the program.
+

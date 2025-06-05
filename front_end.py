@@ -15,7 +15,15 @@ class MainApp:
         self.root.maxsize(400, 400)
         self.center_window(400, 400)
 
-        self.main_frame = ttk.Frame(self.root)
+        self.root.configure(bg = "#A7DDE9")
+
+        style = ttk.Style()
+        style.theme_use("clam")
+        style.configure("Main.TFrame", background = "#A7DDE9")
+        style.configure("Title.TLabel", font = ("Poppins", 30), foreground = "#2C3E50", background = "#A7DDE9")
+        style.configure("Custom.TButton", font = ("Poppins", 10), background = "#66B2D6", foreground = "#2C3E50")
+
+        self.main_frame = ttk.Frame(self.root, style = "Main.TFrame")
         self.main_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
 
         self.inventory = Inventory()
@@ -37,7 +45,7 @@ class MainApp:
     # Display the main menu options.
     def main_menu(self):
         self.clear_frame()
-        ttk.Label(self.main_frame, text = "Main Menu", font = ("Poppins", 18)).pack(pady = 10)
+        ttk.Label(self.main_frame, text = "MAIN MENU", style = "Title.TLabel").pack(pady = 10)
 
         options = [
             ("Check Inventory", self.not_implemented),
@@ -47,7 +55,7 @@ class MainApp:
         ]
 
         for text, command in options:
-            ttk.Button(self.main_frame, text = text, command = command).pack(pady = 5)
+             ttk.Button(self.main_frame, text = text, command = command, style = "Custom.TButton").pack(pady = 5)
 
     # Display options to choose between goods or pets.
 

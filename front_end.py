@@ -67,17 +67,17 @@ class MainApp:
         self.clear_frame()
         
         # Format the label.
-        ttk.Label(self.main_frame, text = "Check Inventory").pack(pady = 10)
+        ttk.Label(self.main_frame, text = "Check Inventory", style = "Title.TLabel").pack(pady = 10)
         
         # Format the buttons.
-        ttk.Button(self.main_frame, text = "View Goods", command = self.view_goods).pack(pady = 5)
-        ttk.Button(self.main_frame, text = "View Pets", command = self.view_pets).pack(pady = 5)
-        ttk.Button(self.main_frame, text = "Back", command = self.main_menu).pack(pady = 5)
+        ttk.Button(self.main_frame, text = "View Goods", command = self.view_goods, style = "Custom.TButton").pack(pady = 5)
+        ttk.Button(self.main_frame, text = "View Pets", command = self.view_pets, style = "Custom.TButton").pack(pady = 5)
+        ttk.Button(self.main_frame, text = "Back", command = self.main_menu, style = "Custom.TButton").pack(pady = 5)
 
     # List down all goods and allow users to view more details.
     def view_goods(self):
         self.clear_frame()
-        ttk.Label(self.main_frame, text="Goods List").pack(pady=10)
+        ttk.Label(self.main_frame, text = "Goods List", style = "Title.TLabel").pack(pady=10)
         goods = self.inventory.get_goods()
 
         # List down the goods.
@@ -85,7 +85,7 @@ class MainApp:
             ttk.Button(self.main_frame, text = good.get_details(), command = lambda list_num = list_good: self.show_good_detail(list_num)).pack(pady = 2)
         
         # Format the button.
-        ttk.Button(self.main_frame, text = "Back", command = self.check_inventory).pack(pady = 10)
+        ttk.Button(self.main_frame, text = "Back", command = self.check_inventory, style = "Custom.TButton").pack(pady = 10)
 
     # Show detailed information of the goods.
 

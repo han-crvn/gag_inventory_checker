@@ -12,7 +12,7 @@ class MainApp:
         self.root.title("GAG Inventory Checker")
         self.root.geometry("400x400")
         self.root.minsize(400, 400)
-        self.root.state('zoomed')
+        self.root.maxsize(400, 400)
         self.center_window(400, 400)
 
         # Format the color of main background.
@@ -92,7 +92,7 @@ class MainApp:
         self.clear_frame()
         good = self.inventory.get_goods()[index]
         detail = f"Name: {good.get_name()}\nPrice: ${good.get_price()}\nMutation: {good.get_mutation()}\nStatus: {good.get_status()}"
-        ttk.Label(self.main_frame, text = detail, style = "Title.TLabel").pack(pady = 10)
+        ttk.Label(self.main_frame, text = detail).pack(pady = 10)
         ttk.Button(self.main_frame, text = "Back", command = self.view_goods, style = "Custom.TButton").pack()
     
     # List down all the pets and show details.
@@ -119,6 +119,40 @@ class MainApp:
         ttk.Button(self.main_frame, text = "Back", command = self.main_menu, style = "Custom.TButton").pack(pady = 5)
 
     # Create form to add new goods.
+    def add_goods(self):
+        self.clear_frame()
+        ttk.Label(self.main_frame, text = "ADD GOOD", style = "Title.TLabel").pack()
+
+        name_entry = ttk.Entry(self.main_frame)
+        name_entry.insert(0, "Fruit/Vegetable Name")
+        name_entry.pack()
+
+        ttk.Label(self.main_frame, text = "Mutation(s)").pack()
+
+        mutations = ["Gold", "Disco", "Rainbow", "Choc"]
+        mutation_vars = {}
+        for mutation in mutations:
+            varias = tk.BooleanVar()
+            check = ttk.Checkbutton(self.main_frame, text = mutation, variable = varias)
+            check.pack(anchor = 'w')
+            mutation_vars[mutation] = varias
+
+        price_entry = ttk.Entry(self.main_frame)
+        price_entry.insert(0, "Price")
+        price_entry.pack()
+
+        def submit():
+            try:
+                selected_mutations = [mut for mut, var in mutation_vars.items() if var.get()]
+                mutations_str = ", ".join(selected_mutations) if selected_mutations else "None"
+                self.inventory.add_good(name_entry.get(), mutations_str, float(price_entry.get()))
+                messagebox.showinfo("Success", "Good added!")
+                self.main_menu()
+
+            except ValueError:
+                messagebox.showerror("Error", "Invalid price")
+
+        ttk.Button(self.main_frame, text = "Submit", command = submit, style = "Custom.TButton").pack(pady = 10)
 
     # Create form to add new pets.
 
@@ -137,7 +171,6 @@ class MainApp:
     # Remove a pet from inventory.
 
     # Mark a pet as sold.
-
 
     # (TEMPORARY) Test run checker.
     def not_implemented(self):

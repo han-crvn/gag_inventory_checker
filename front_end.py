@@ -23,7 +23,7 @@ class MainApp:
         style.theme_use("clam")
         style.configure("Main.TFrame", background = "#A7DDE9")
         style.configure("Title.TLabel", font = ("Poppins", 30), foreground = "#2C3E50", background = "#A7DDE9")
-        style.configure("Custom.TButton", font = ("Poppins", 10), background = "#66B2D6", foreground = "#2C3E50")
+        style.configure("Custom.TButton", font = ("Poppins", 10), foreground = "#2C3E50")
         
         # Format the frame of app.
         self.main_frame = ttk.Frame(self.root, style = "Main.TFrame")

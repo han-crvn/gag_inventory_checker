@@ -96,7 +96,16 @@ class MainApp:
         ttk.Button(self.main_frame, text = "Back", command = self.view_goods, style = "Custom.TButton").pack()
     
     # List down all the pets and show details.
+    def view_pets(self):
+        self.clear_frame()
+        ttk.Label(self.main_frame, text = "Pets List", style = "Title.TLabel").pack(pady = 10)
+        pets = self.inventory.get_pets()
 
+        for i, pet in enumerate(pets):
+            ttk.Label(self.main_frame, text = pet.get_details(), style = "Title.TLabel").pack()
+
+        ttk.Button(self.main_frame, text="Back", command = self.check_inventory, style = "Custom.TButton").pack(pady = 10)
+    
     # Display options to add goods or pets.
 
     # Create form to add new goods.

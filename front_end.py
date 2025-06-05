@@ -67,7 +67,7 @@ class MainApp:
         self.clear_frame()
         
         # Format the label.
-        ttk.Label(self.main_frame, text = "Check Inventory", style = "Title.TLabel").pack(pady = 10)
+        ttk.Label(self.main_frame, text = "CHECK INVENTORY", style = "Title.TLabel").pack(pady = 10)
         
         # Format the buttons.
         ttk.Button(self.main_frame, text = "View Goods", command = self.view_goods, style = "Custom.TButton").pack(pady = 5)
@@ -77,7 +77,7 @@ class MainApp:
     # List down all goods and allow users to view more details.
     def view_goods(self):
         self.clear_frame()
-        ttk.Label(self.main_frame, text = "Goods List", style = "Title.TLabel").pack(pady=10)
+        ttk.Label(self.main_frame, text = "GOODS LIST", style = "Title.TLabel").pack(pady=10)
         goods = self.inventory.get_goods()
 
         # List down the goods.
@@ -98,7 +98,7 @@ class MainApp:
     # List down all the pets and show details.
     def view_pets(self):
         self.clear_frame()
-        ttk.Label(self.main_frame, text = "Pets List", style = "Title.TLabel").pack(pady = 10)
+        ttk.Label(self.main_frame, text = "PETS LIST", style = "Title.TLabel").pack(pady = 10)
         pets = self.inventory.get_pets()
 
         for i, pet in enumerate(pets):

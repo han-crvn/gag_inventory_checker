@@ -31,4 +31,3 @@ First Algorithm for GAG (Grow A Garden) Inventory Checker
 
 6. If users choose option 4:
     6.1.) Allow users to exit the program.
-

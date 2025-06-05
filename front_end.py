@@ -53,7 +53,7 @@ class MainApp:
 
         # List of options.
         options = [
-            ("Check Inventory", self.not_implemented),
+            ("Check Inventory", self.check_inventory),
             ("Add Goods/Pets", self.not_implemented),
             ("Edit Inventory", self.not_implemented),
             ("Exit", self.root.quit)
@@ -63,6 +63,16 @@ class MainApp:
              ttk.Button(self.main_frame, text = text, command = command, style = "Custom.TButton").pack(pady = 5)
 
     # Display options to choose between goods or pets.
+    def check_inventory(self): 
+        self.clear_frame()
+        
+        # Format the label.
+        ttk.Label(self.main_frame, text = "Check Inventory").pack(pady = 10)
+        
+        # Format the buttons.
+        ttk.Button(self.main_frame, text = "View Goods", command = self.view_goods).pack(pady = 5)
+        ttk.Button(self.main_frame, text = "View Pets", command = self.view_pets).pack(pady = 5)
+        ttk.Button(self.main_frame, text = "Back", command = self.main_menu).pack(pady = 5)
 
     # List down all goods and allow users to view more details.
 

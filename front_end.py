@@ -101,10 +101,10 @@ class MainApp:
         ttk.Label(self.main_frame, text = "PETS LIST", style = "Title.TLabel").pack(pady = 10)
         pets = self.inventory.get_pets()
 
-        for i, pet in enumerate(pets):
+        for num_pet, pet in enumerate(pets):
             ttk.Label(self.main_frame, text = pet.get_details(), style = "Title.TLabel").pack()
 
-        ttk.Button(self.main_frame, text="Back", command = self.check_inventory, style = "Custom.TButton").pack(pady = 10)
+        ttk.Button(self.main_frame, text = "Back", command = self.check_inventory, style = "Custom.TButton").pack(pady = 10)
     
     # Display options to add goods or pets.
     def add_items(self):
@@ -122,36 +122,44 @@ class MainApp:
     def add_goods(self):
         self.clear_frame()
         ttk.Label(self.main_frame, text = "ADD GOOD", style = "Title.TLabel").pack()
-
+        
+        # Format the goods.
         name_entry = ttk.Entry(self.main_frame)
         name_entry.insert(0, "Fruit/Vegetable Name")
         name_entry.pack()
 
+        # Format the mutations.
         ttk.Label(self.main_frame, text = "Mutation(s)").pack()
-
         mutations = ["Gold", "Disco", "Rainbow", "Choc"]
         mutation_vars = {}
+
+        # List down the checklist.
         for mutation in mutations:
             varias = tk.BooleanVar()
             check = ttk.Checkbutton(self.main_frame, text = mutation, variable = varias)
             check.pack(anchor = 'w')
             mutation_vars[mutation] = varias
 
+        # Format the price.
         price_entry = ttk.Entry(self.main_frame)
         price_entry.insert(0, "Price")
         price_entry.pack()
 
         def submit():
             try:
+                
+                # Add the goods to inventory.
                 selected_mutations = [mut for mut, var in mutation_vars.items() if var.get()]
                 mutations_str = ", ".join(selected_mutations) if selected_mutations else "None"
                 self.inventory.add_good(name_entry.get(), mutations_str, float(price_entry.get()))
                 messagebox.showinfo("Success", "Good added!")
                 self.main_menu()
 
+            # Check if there is a valid price.
             except ValueError:
                 messagebox.showerror("Error", "Invalid price")
-
+        
+        # Format the button.
         ttk.Button(self.main_frame, text = "Submit", command = submit, style = "Custom.TButton").pack(pady = 10)
 
     # Create form to add new pets.
@@ -160,7 +168,7 @@ class MainApp:
 
     # List of goods for editing or removing.
 
-    # OptionS to remove or mark a good a sold.
+    # Options to remove or mark a good a sold.
 
     # Remove good from inventory.
 

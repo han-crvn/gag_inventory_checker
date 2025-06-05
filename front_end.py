@@ -54,7 +54,7 @@ class MainApp:
         # List of options.
         options = [
             ("Check Inventory", self.check_inventory),
-            ("Add Goods/Pets", self.not_implemented),
+            ("Add Goods/Pets", self.add_items),
             ("Edit Inventory", self.not_implemented),
             ("Exit", self.root.quit)
         ]
@@ -107,6 +107,16 @@ class MainApp:
         ttk.Button(self.main_frame, text="Back", command = self.check_inventory, style = "Custom.TButton").pack(pady = 10)
     
     # Display options to add goods or pets.
+    def add_items(self):
+        self.clear_frame()
+        
+        # Format the label.
+        ttk.Label(self.main_frame, text = "ADD ITEMS", style = "Title.TLabel").pack(pady = 10)
+
+        # Format the button.
+        ttk.Button(self.main_frame, text = "Add Goods", command = self.add_goods, style = "Custom.TButton").pack(pady = 5)
+        ttk.Button(self.main_frame, text = "Add Pets", command = self.add_pets, style = "Custom.TButton").pack(pady = 5)
+        ttk.Button(self.main_frame, text = "Back", command = self.main_menu, style = "Custom.TButton").pack(pady = 5)
 
     # Create form to add new goods.
 

@@ -12,7 +12,7 @@ class MainApp:
         self.root.title("GAG Inventory Checker")
         self.root.geometry("400x400")
         self.root.minsize(400, 400)
-        self.root.maxsize(400, 400)
+        self.root.state('zoomed')
         self.center_window(400, 400)
 
         # Format the color of main background.

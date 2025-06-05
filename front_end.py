@@ -88,7 +88,13 @@ class MainApp:
         ttk.Button(self.main_frame, text = "Back", command = self.check_inventory, style = "Custom.TButton").pack(pady = 10)
 
     # Show detailed information of the goods.
-
+    def show_good_detail(self, index):
+        self.clear_frame()
+        good = self.inventory.get_goods()[index]
+        detail = f"Name: {good.get_name()}\nPrice: ${good.get_price()}\nMutation: {good.get_mutation()}\nStatus: {good.get_status()}"
+        ttk.Label(self.main_frame, text = detail, style = "Title.TLabel").pack(pady = 10)
+        ttk.Button(self.main_frame, text = "Back", command = self.view_goods, style = "Custom.TButton").pack()
+    
     # List down all the pets and show details.
 
     # Display options to add goods or pets.

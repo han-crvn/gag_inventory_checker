@@ -37,5 +37,15 @@ class Goods(Items):
         return self.mutation
     
 # Create class for pets (details, prices).
+class Pet(Items):
+    def __init__(self, name, weight):
+        super().__init__(name)
+        self.weight = float(weight)
 
+    def get_details(self):
+        return f"{self.name} - {self.weight}kg [{self.status}]"
+
+    def get_weight(self):
+        return self.weight
+    
 # Create class for whole inventory.

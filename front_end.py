@@ -4,14 +4,50 @@ from tkinter import ttk, messagebox
 from back_end import Inventory
 
 # Create class for the GUI of the app.
+class MainApp:
 
     # Set main app.
+    def __init__(self, root):
+        self.root = root
+        self.root.title("GAG Inventory Checker")
+        self.root.geometry("400x400")
+        self.root.minsize(400, 400)
+        self.root.maxsize(400, 400)
+        self.center_window(400, 400)
+
+        self.main_frame = ttk.Frame(self.root)
+        self.main_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
+
+        self.inventory = Inventory()
+        self.main_menu()
 
     # Center the window on the screen.
-
+    def center_window(self, width, height):
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        x_axis = (screen_width // 2) - (width // 2)
+        y_axis = (screen_height // 2) - (height // 2)
+        self.root.geometry(f"{width}x{height}+{x_axis}+{y_axis}")
+    
     # Clear widgets from the main frame.
+    def clear_frame(self):
+        for widget in self.main_frame.winfo_children():
+            widget.destroy()
 
     # Display the main menu options.
+    def main_menu(self):
+        self.clear_frame()
+        ttk.Label(self.main_frame, text = "Main Menu", font = ("Poppins", 18)).pack(pady = 10)
+
+        options = [
+            ("Check Inventory", self.not_implemented),
+            ("Add Goods/Pets", self.not_implemented),
+            ("Edit Inventory", self.not_implemented),
+            ("Exit", self.root.quit)
+        ]
+
+        for text, command in options:
+            ttk.Button(self.main_frame, text = text, command = command).pack(pady = 5)
 
     # Display options to choose between goods or pets.
 
@@ -42,3 +78,8 @@ from back_end import Inventory
     # Remove a pet from inventory.
 
     # Mark a pet as sold.
+
+
+    # (TEMPORARY) Test run checker.
+    def not_implemented(self):
+        messagebox.showinfo("Not Ready", "This feature is not yet implemented.")

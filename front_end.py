@@ -1,4 +1,7 @@
 # Import libraries.
+import tkinter as tk
+from tkinter import ttk, messagebox
+from back_end import Inventory
 
 # Create class for the GUI of the app.
 

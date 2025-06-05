@@ -6,7 +6,7 @@ from back_end import Inventory
 # Create class for the GUI of the app.
 class MainApp:
 
-    # Set main app.
+    # Set the size, font, font size, and color of the app.
     def __init__(self, root):
         self.root = root
         self.root.title("GAG Inventory Checker")
@@ -15,17 +15,21 @@ class MainApp:
         self.root.maxsize(400, 400)
         self.center_window(400, 400)
 
+        # Format the color of main background.
         self.root.configure(bg = "#A7DDE9")
-
+        
+        # Format the font, font size, and color of the buttons.
         style = ttk.Style()
         style.theme_use("clam")
         style.configure("Main.TFrame", background = "#A7DDE9")
         style.configure("Title.TLabel", font = ("Poppins", 30), foreground = "#2C3E50", background = "#A7DDE9")
         style.configure("Custom.TButton", font = ("Poppins", 10), background = "#66B2D6", foreground = "#2C3E50")
-
+        
+        # Format the frame of app.
         self.main_frame = ttk.Frame(self.root, style = "Main.TFrame")
         self.main_frame.place(relx = 0.5, rely = 0.5, anchor = "center")
 
+        # Run the app.
         self.inventory = Inventory()
         self.main_menu()
 
@@ -47,13 +51,14 @@ class MainApp:
         self.clear_frame()
         ttk.Label(self.main_frame, text = "MAIN MENU", style = "Title.TLabel").pack(pady = 10)
 
+        # List of options.
         options = [
             ("Check Inventory", self.not_implemented),
             ("Add Goods/Pets", self.not_implemented),
             ("Edit Inventory", self.not_implemented),
             ("Exit", self.root.quit)
         ]
-
+        # List down the options.
         for text, command in options:
              ttk.Button(self.main_frame, text = text, command = command, style = "Custom.TButton").pack(pady = 5)
 
